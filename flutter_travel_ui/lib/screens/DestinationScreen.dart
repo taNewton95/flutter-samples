@@ -20,10 +20,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
         children: <Widget>[
           Stack(children: <Widget>[
             Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              height: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   boxShadow: [
@@ -45,7 +42,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
             ),
             Padding(
               padding:
-              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -119,6 +116,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
           ]),
           Expanded(
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
               itemCount: widget.destination.activities.length,
               itemBuilder: (BuildContext buildContext, int index) {
                 final Activity activity = widget.destination.activities[index];
@@ -133,8 +131,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20.0)),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                            100.0, 20.0, 20.0, 20.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -181,11 +179,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                             Row(
                               children: <Widget>[
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70.0,
                                   decoration: BoxDecoration(
-                                    color: Theme
-                                        .of(context)
-                                        .accentColor,
+                                    color: Theme.of(context).accentColor,
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   child: Text(activity.startTimes[0]),
@@ -195,11 +192,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   width: 10.0,
                                 ),
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70.0,
                                   decoration: BoxDecoration(
-                                    color: Theme
-                                        .of(context)
-                                        .accentColor,
+                                    color: Theme.of(context).accentColor,
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   child: Text(activity.startTimes[1]),
@@ -211,12 +207,17 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         ),
                       ),
                     ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Image(
-                        width: 110.0,
-                        image: AssetImage(activity.imageUrl),
-                        fit: BoxFit.cover,
+                    Positioned(
+                      left: 20.0,
+                      top: 15.0,
+                      bottom: 15.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image(
+                          width: 110.0,
+                          image: AssetImage(activity.imageUrl),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     )
                   ],
